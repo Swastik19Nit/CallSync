@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "NODE_OPTIONS=--max_old_space_size=512 node dist/index.js",
+    "start": "NODE_OPTIONS=--max_old_space_size=512 node build/index.js",
     "vercel-build": "echo Hello from Swastik",
     "dev": "NODE_OPTIONS=--max_old_space_size=512 nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"ts-node src/index.ts\""
   },

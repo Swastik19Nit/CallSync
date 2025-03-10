@@ -49,8 +49,9 @@ mongoose
       console.log(`Server running on port ${PORT}`);
     });
   })
-  .catch((_) => {
-    console.error("error occured during db connection");
+  .catch((err) => {
+    console.error("Error occurred during DB connection:", err);
   });
+
 
 export default app;

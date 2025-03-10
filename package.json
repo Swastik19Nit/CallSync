@@ -1,42 +1,16 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "CalSync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "push": "drizzle-kit push:pg",
-    "pull": "drizzle-kit introspect:pg ",
-    "generate": "drizzle-kit generate --name init_db",
-    "drop": "drizzle-kit drop",
-    "check": "drizzle-kit check:pg",
-    "up": "drizzle-kit up:pg",
-    "migrate": "bun run src/lib/supabase/migration.ts"
+    "dev": "concurrently \"npm run --prefix server dev\" \"npm run --prefix web dev\""
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.33.0",
-    "lucide-react": "^0.428.0",
-    "next": "14.2.5",
-    "postgres": "^3.4.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "drizzle-kit": "^0.24.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "concurrently": "^8.2.2",
+    "react-router-dom": "^6.22.3"
   }
 }

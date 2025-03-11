@@ -13,9 +13,9 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
   token = req.cookies?.jwt;
 
   if (!token) {
-    return res.status(400).json({
-      error: "no token",
-      message: "m nhi aaunga"
+    return res.status(401).json({
+      status: "error",
+      message: "Authentication required. Please log in to continue."
     });
   }
 
@@ -24,19 +24,21 @@ export const authenticate = async (req: Request, res: Response, next: NextFuncti
     req.user = await User.findById(decoded._id).select("-password").lean() as IUser;
     if (!req.user) {
       return res.status(403).json({
-        status: "failed",
-        message: "User not authenticated"
+        status: "error",
+        message: "User not found or access denied."
       });
     }
     next();
   } catch (err) {
     res.cookie("jwt", "", {
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
       expires: new Date(0)
     });
     return res.status(401).json({
-      error: "not authorized",
-      message: "Session expired. Please log in again."
+      status: "error",
+      message: "Authentication invalid or expired. Please log in again."
     });
   }
 };

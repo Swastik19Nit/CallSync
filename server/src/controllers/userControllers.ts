@@ -41,10 +41,11 @@ export const userLogin = async (req: Request, res: Response) => {
     }
 
     const token = createToken(user._id.toString());
+    
     res.cookie("jwt", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict",
+      secure: true, 
+      sameSite: "none", 
       maxAge: 2 * 24 * 60 * 60 * 1000, // 2days
     });
 
@@ -56,6 +57,7 @@ export const userLogin = async (req: Request, res: Response) => {
       firstName: user.firstName ? user.firstName : null,
     });
   } catch (err) {
+    console.error("Login error:", err);
     return res.status(500).json({
       status: "failed",
       message: "Try Again, this one is our fault",
@@ -100,10 +102,11 @@ export const userSignup = async (req: Request, res: Response) => {
     });
 
     const token = createToken(user._id.toString());
+    
     res.cookie("jwt", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict",
+      secure: true,
+      sameSite: "none",
       maxAge: 2 * 24 * 60 * 60 * 1000, // 2days
     });
 
@@ -114,6 +117,7 @@ export const userSignup = async (req: Request, res: Response) => {
       email: user.email,
     });
   } catch (err) {
+    console.error("Signup error:", err);
     return res.status(500).json({
       message: "try again",
     });
@@ -121,8 +125,11 @@ export const userSignup = async (req: Request, res: Response) => {
 };
 
 export const userLogout = (req: Request, res: Response) => {
+  // Updated cookie clearing for cross-domain deployment
   res.cookie("jwt", "", {
     httpOnly: true,
+    secure: true, // Required for HTTPS
+    sameSite: "none", // Changed from default to "none" for cross-origin
     expires: new Date(0),
   });
 
@@ -176,6 +183,7 @@ export const getUser = async (req: Request, res: Response) => {
       meeting,
     });
   } catch (err) {
+    console.error("Get user error:", err);
     return res.status(400).json({
       status: "failed",
       message: "user not found, try again",

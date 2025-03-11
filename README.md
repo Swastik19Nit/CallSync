@@ -1,10 +1,7 @@
 # CallSync
-is an Indian open-source alternative platform for calendly and cal. It is a scheduling infrastructure, which enables you to create bookings and appointments, according to the availability set by the user. You can connect your google calendar with Schedulo and we will take care of everything from creating an event in your calendar to sending you reminder emails for the meeting.
+is an open-source scheduling platform designed as an alternative to Calendly and Cal. It provides a robust infrastructure for managing bookings and appointments based on user-defined availability. By integrating with Google Calendar, Schedulo streamlines the scheduling process—automating event creation and sending timely meeting reminders.
 
-Schedulo is a comprehensive scheduling tool that allows users to connect
-their Google Calendar, set up their availability dynamically, and
-generate a public page for booking appointments. This project included
-a fully functional backend and an intuitive user interface.
+Users can easily sync their Google Calendar, configure their availability, and generate a public booking page for seamless appointment management. This project features a fully developed backend and a user-friendly interface, ensuring an efficient and intuitive scheduling experience.
 
 ## Tech stack used to build Schedulo
 - Typescript

@@ -47,6 +47,7 @@ mongoose
   .connect(URI)
   .then(() => {
     app.listen(PORT, () => {
+      console.log("Backend in running !!!! Hurrah")
       console.log(`Server running on port ${PORT}`);
     });
   })

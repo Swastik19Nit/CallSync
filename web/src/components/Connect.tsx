@@ -50,16 +50,18 @@ function Connect() {
             <img src={calender} alt="" className="w-full h-full justify-top" />
           </div>
           <div className="flex justify-end space-x-2 pb-6 pt-4 items-end">
-            <Link
-              to="http://localhost:8000/auth/google"
-              className="inline-flex items-end text-sm font-medium relative rounded-md transition h-9 px-4 py-2.5 bg-mainText text-main font-heading hover:bg-opacity-80"
-              onClick={() => {
-                handleConnected()
-                handleConnectClick()
-              }}
-            >
-              Connect
-            </Link>
+          <a
+            href="https://callsync-p4ea.onrender.com/auth/google"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-end text-sm font-medium relative rounded-md transition h-9 px-4 py-2.5 bg-mainText text-main font-heading hover:bg-opacity-80"
+            onClick={() => {
+              handleConnected();
+              handleConnectClick();
+            }}
+          >
+            Connect
+          </a>
           </div>
         </div>
       </div>

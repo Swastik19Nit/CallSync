@@ -8,7 +8,7 @@ import {
 
 const baseQuery: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> =
   fetchBaseQuery({
-    baseUrl: "http://localhost:8000",
+    baseUrl: "https://callsync-p4ea.onrender.com",
     credentials: "include",
   });
 

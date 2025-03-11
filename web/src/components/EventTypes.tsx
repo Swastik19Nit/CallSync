@@ -80,7 +80,7 @@ function EventTypes() {
             <button
               data-testid="new-event-type"
               type="button"
-              className="whitespace-nowrap inline-flex items-center text-sm font-medium relative transition disabled:cursor-not-allowed rounded-full justify-center md:rounded-md px-4 py-2.5 h-14 md:h-9 md:w-auto md:px-4 md:py-2.5 text-main bg-mainText font-heading font-semibold hover:opacity-80"
+              className="whitespace-nowrap inline-flex items-center text-sm font-medium relative transition disabled:cursor-not-allowed rounded-full justify-center md:rounded-md px-4 py-2.5 h-14 md:h-9 md:w-auto md:px-4 md:py-2.5 text-main bg-mainText font-heading hover:opacity-80"
               onClick={handleMeetingClick}
             >
               <svg
@@ -181,7 +181,7 @@ function EventTypes() {
                     with you.
                   </div>
                   <button
-                    className="whitespace-nowrap inline-flex items-center text-sm font-medium relative rounded-md transition bg-mainText h-9 px-4 py-2.5 text-main font-heading font-semibold hover:opacity-80"
+                    className="whitespace-nowrap inline-flex items-center text-sm font-medium relative rounded-md transition bg-mainText h-9 px-4 py-2.5 text-main font-heading hover:opacity-80"
                     onClick={handleMeetingClick}
                   >
                     Create

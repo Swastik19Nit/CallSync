@@ -124,7 +124,7 @@ function EventTypes() {
           <img 
             src={fetch} 
             alt="Error fetching data" 
-            className="w-32 h-32 mb-6 opacity-80"
+            className="w-[400px] h-[400px] mb-6 opacity-80"
           />
           <p className="text-red-500 text-2xl font-bold font-heading animate-pulse" 
              style={{

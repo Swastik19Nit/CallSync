@@ -3,6 +3,7 @@ import { IsConnected, IsMeetingFormClicked } from "../slices/isClickedSlice";
 import { useMeetingsQuery } from "../slices/meetingsApiSlice";
 import MeetingCard from "./MeetingCard";
 import { setMeetingIds } from "../slices/meetingSlice";
+import fetch from "../assets/images/fetch.png";
 import { useEffect } from "react";
 import { Meeting } from "../interfaces/interfaces";
 import { RootState } from "../store";
@@ -53,9 +54,8 @@ function EventTypes() {
 
   if (isLoading) {
     return (
-      <div className="w-screen  h-screen">
-        {" "}
-        <LoadingComponent />{" "}
+      <div className="w-screen h-screen">
+        <LoadingComponent />
       </div>
     );
   }
@@ -65,7 +65,7 @@ function EventTypes() {
       <div className="flex items-center px-6 py-12 md:py-8 ">
         <header className="flex w-full max-w-full items-center truncate">
           <div className="w-full truncate ltr:mr-4 rtl:ml-4 md:block">
-            <h3 className="font-heading max-w-28 sm:max-w-72 md:max-w-80 text-emphasis font-semibold  sm:text-xl xl:max-w-full text-xl text-mainText">
+            <h3 className="font-heading max-w-28 sm:max-w-72 md:max-w-80 text-emphasis font-semibold sm:text-xl xl:max-w-full text-xl text-mainText">
               Event Types
             </h3>
             <p
@@ -120,7 +120,29 @@ function EventTypes() {
         </header>
       </div>
       {isError ? (
-        <p className="text-white text-2xl">Error fetching meetings</p>
+        <div className="flex flex-col items-center justify-center h-64 w-full">
+          <img 
+            src={fetch} 
+            alt="Error fetching data" 
+            className="w-32 h-32 mb-6 opacity-80"
+          />
+          <p className="text-red-500 text-2xl font-bold font-heading animate-pulse" 
+             style={{
+               textShadow: "0 0 10px rgba(239, 68, 68, 0.7), 0 0 20px rgba(239, 68, 68, 0.5)",
+               animation: "pulse 2s infinite"
+             }}>
+            Error fetching meetings
+          </p>
+          <p className="text-mainText mt-4 text-sm">
+            Please check your connection and try again
+          </p>
+          <button 
+            onClick={() => refetch()} 
+            className="mt-4 bg-mainText text-main px-4 py-2 rounded-md hover:opacity-80 transition-opacity font-semibold"
+          >
+            Try Again
+          </button>
+        </div>
       ) : (
         <div>
           {selectedMeetings && selectedMeetings.length > 0 ? (

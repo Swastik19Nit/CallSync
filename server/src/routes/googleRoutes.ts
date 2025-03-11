@@ -19,15 +19,14 @@ router.get('/callback',
   passport.authenticate('google', { failureRedirect: '/auth/google/failure' }),
   (req: Request, res: Response) => {
     if (!req.isAuthenticated()) {
-      return res.redirect('http://localhost:5173/auth/google/failure');
+      return res.redirect('https://collab-black.vercel.app/auth/google/failure');
     }
-    res.redirect(`http://localhost:5173/home/event-types?profilePicture=${req.user.profilePicUrl}&firstName=${req.user.firstName}`);
+    res.redirect(`https://collab-black.vercel.app/home/event-types?profilePicture=${req.user.profilePicUrl}&firstName=${req.user.firstName}`);
   }
 );
 
 router.get('/failure', (_: Request, res: Response) => {
-  res.redirect('http://localhost:5173');
+  res.redirect('https://collab-black.vercel.app');
 });
 
 export { router as googleAuthRoutes };
-

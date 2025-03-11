@@ -41,13 +41,13 @@ export default function Landing() {
         </h1>
         <div className="flex items-center gap-3 md:gap-5">
           <a
-            href="https://github.com/Swastik1493/CalSync/"
+            href="https://github.com/Swastik19Nit/Collab"
             target="_blank"
             className="bg-mainText rounded-3xl flex items-center justify-center px-3 py-2 md:px-5 md:py-3"
             rel="noreferrer"
           >
             <img className="w-5 h-5 md:w-6 md:h-6" src={github || "/placeholder.svg"} alt="GitHub" />
-            <span className="ml-2 text-main font-heading font-semibold text-sm md:text-lg">star us</span>
+            <span className="ml-2 text-main font-heading font-semibold text-sm md:text-lg">Give me a star</span>
           </a>
 
           {userInfo ? (

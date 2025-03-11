@@ -2,22 +2,20 @@ const LINKS = [
   {
     title: "Github",
     items: [
-      { name: "Swastik", link: "https://github.com/Swastik1493" },
-      { name: "Swastik", link: "https://github.com/Swastik063" },
+      { name: "Swastik", link: "https://github.com/Swastik19Nit" },
+
     ],
   },
   {
     title: "LinkedIn",
     items: [
-      { name: "Swastik", link: "https://www.linkedin.com/in/Swastiksharma14/" },
-      { name: "Swastik", link: "https://www.linkedin.com/in/Swastikkapoor06/" },
+      { name: "Swastik", link: "https://www.linkedin.com/in/swastik-bhowmick/" },
     ],
   },
   {
     title: "Contact Us",
     items: [
-      { name: "Swastik", link: "https://www.linkedin.com/in/Swastiksharma14/" },
-      { name: "Swastik", link: "https://www.linkedin.com/in/Swastikkapoor06/" },
+      { name: "Swastik", link: "https://www.linkedin.com/in/swastik-bhowmick/" },
     ],
   },
 ];

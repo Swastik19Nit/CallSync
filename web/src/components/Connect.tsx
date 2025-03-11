@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { IsConnectClicked, IsConnected } from "../slices/isClickedSlice";
-import { Link } from "react-router-dom";
 import calender from "../assets/images/landing.png";
 
 function Connect() {

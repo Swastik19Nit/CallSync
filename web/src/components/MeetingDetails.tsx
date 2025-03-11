@@ -23,7 +23,7 @@ function MeetingDetails() {
     error,
   } = useMeetingDetailsQuery(id);
 
-  const meetingLink = `http://localhost:5173/${userInfo.username}/${id}`;
+  const meetingLink = `https://collab-black.vercel.app/${userInfo.username}/${id}`;
   const { isCopied, copyToClipboard } = useCopyToClipboard({
     textToCopy: meetingLink,
   });

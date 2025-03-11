@@ -19,7 +19,7 @@ function MeetingCard({ meeting }: MeetingCardProps) {
   const [showDeleteTooltip, setShowDeleteTooltip] = useState(false);
   const [showPreviewTooltip, setShowPreviewTooltip] = useState(false);
 
-  const meetingLink = `http://localhost:5173/${userInfo.username}/${meeting._id}`;
+  const meetingLink = `https://collab-black.vercel.app/${userInfo.username}/${meeting._id}`;
   const { isCopied, copyToClipboard } = useCopyToClipboard({
     textToCopy: meetingLink,
   });

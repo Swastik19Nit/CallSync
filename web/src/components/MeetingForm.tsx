@@ -131,8 +131,8 @@ function MeetingForm() {
               id="url"
               placeholder={
                 userInfo
-                  ? `http://localhost:5173/${userInfo.username}`
-                  : "http://localhost:5173/"
+                  ? `https://collab-black.vercel.app/${userInfo.username}`
+                  : "https://collab-black.vercel.app/"
               }
               readOnly
             />

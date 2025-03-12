@@ -120,7 +120,7 @@ function EventTypes() {
         </header>
       </div>
       {isError ? (
-        <div className="flex flex-col items-center justify-center h-64 w-full">
+        <div className="flex flex-col items-center justify-center h-64 w-full mt-10">
           <img 
             src={fetch} 
             alt="Error fetching data" 

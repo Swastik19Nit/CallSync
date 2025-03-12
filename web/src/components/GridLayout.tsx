@@ -4,7 +4,7 @@ import booking from "../assets/images/booking.png";
 import meeting from "../assets/images/meeting.png";
 import bookings from "../assets/images/bookings.png";
 import create from "../assets/images/create.png";
-import displayMeeting from "../assets/images/displayMeetings.jpeg";
+import displayMeeting from "../assets/images/displayMeetings.png";
 import bookingDetails from "../assets/images/bookingDetails.png";
 import claimUsername from "../assets/images/claimUsername.jpeg";
 

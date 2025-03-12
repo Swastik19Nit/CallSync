@@ -392,7 +392,7 @@ function ScheduleBooking() {
                   data-testid="confirm-book-button"
                   type="submit"
                   onClick={handleSubmit}
-                  className="whitespace-nowrap w-full py-3 text-center text-sm font-medium relative rounded-lg transition disabled:cursor-not-allowed bg-input bg-opacity-50 hover:bg-opacity-90 font-heading hover:bg-brand-emphasis focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-default text-main font-heading"
+                  className="whitespace-nowrap w-full py-3 text-center text-sm font-medium relative rounded-lg transition disabled:cursor-not-allowed bg-input bg-opacity-50 hover:bg-opacity-90 font-heading hover:bg-brand-emphasis focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-default text-main"
                 >
                   Schedule Meeting
                 </button>

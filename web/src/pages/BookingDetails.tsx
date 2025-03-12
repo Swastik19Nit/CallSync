@@ -15,12 +15,9 @@ const BookingDetails = () => {
   const { data, isError, isLoading } = useBookingDetailsQuery(bookingId);
   const Booking = data?.booking;
   const startingIn = Booking ? getMeetingTimeStatus(Booking.startTime) : "";
-  const isOccured = Booking
-    ? Date.now() < new Date(Booking.startTime).getTime()
-    : false;
+  const isOccured = Booking ? Date.now() < new Date(Booking.startTime).getTime() : false;
 
-  const [cancel, { isLoading: isLoadingCancel, isError: isErrorCancel }] =
-    useCancelBookingMutation();
+  const [cancel, { isLoading: isLoadingCancel, isError: isErrorCancel }] = useCancelBookingMutation();
 
   const cancelBooking = async () => {
     if (!Booking) return;
@@ -29,12 +26,17 @@ const BookingDetails = () => {
       if (response) {
         //@ts-ignore
         dispatch(markBookingCanceled(bookingId));
-        toast.success("booking canceled");
+        toast.success("Booking canceled");
       }
     } catch (err) {
       const errorResponse = err as ErrorResponse;
       toast.error(errorResponse.data?.message || errorResponse.error);
     }
+  };
+
+  const truncateText = (text?: string, maxLength = 50) => {
+    if (!text) return "";
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   };
 
   if (isLoading || isLoadingCancel) {
@@ -46,28 +48,33 @@ const BookingDetails = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen overflow-y-auto w-screen">
-      <div className="flex flex-col items-center py-5 bg-home border rounded-[20px] border-gray-400 w-full md:w-1/3 text-white">
-        <span
-          className="flex justify-start w-full px-4 cursor-pointer font-heading font-semibold opacity-80"
-          onClick={() => navigate(-1)}
-        >
-          Go Back
-        </span>
-        <div className="text-3xl font-semibold mb-8 text-secondHeading">
+    <div className="flex justify-center items-center min-h-screen p-4 w-full">
+      <div className="flex flex-col items-center p-5 bg-home border rounded-lg border-gray-400 w-full max-w-lg sm:max-w-md text-white">
+        <div className="w-full flex justify-start mb-4">
+          <button
+            onClick={() => navigate(-1)}
+            className="px-4 py-2 cursor-pointer font-heading font-semibold opacity-80 bg-mainText text-black hover:bg-home hover:text-white duration-200 border-gray-500 border rounded-lg"
+          >
+            Go Back
+          </button>
+        </div>
+
+        <div className="text-5xl font-bold mb-6 text-secondHeading text-center animate-pulse" >
           {Booking.title}
         </div>
-        <div className="flex flex-col lg:flex-row w-3/4 border-b border-b-gray-500 pb-4 sm:justify-between">
-          <div className="text-[18px] font-heading">Attendees - </div>
-          <div className="text-gray-300 text-right font-heading text-sm">
-            <p className="mb-3">{Booking.guestUser}</p>
+
+        <div className="flex justify-between w-full border-b border-gray-500 pb-4 items-center">
+          <div className="text-lg font-heading">Attendees</div>
+          <div className="text-gray-300 text-sm text-right">
+            <p className="mb-2">{Booking.guestUser}</p>
             <p>{Booking.first_user}</p>
           </div>
         </div>
-        <div className="flex w-3/4 mt-4 pb-4 justify-between border-b border-b-gray-500">
-          <div className="text-[18px] font-heading">Scheduled at -</div>
-          <div className="text-gray-300 text-right font-heading text-sm">
-            <div className="mb-3">
+
+        <div className="flex w-full mt-4 pb-4 justify-between border-b border-gray-500">
+          <div className="text-lg font-heading">Scheduled at</div>
+          <div className="text-gray-300 text-sm text-right">
+            <div className="mb-2">
               {new Date(Booking.startTime).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -83,45 +90,49 @@ const BookingDetails = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-3/4 justify-between mt-4 pb-6 border-b border-b-gray-500 font-heading text-mainText">
-          <div className="text-[18px] font-heading">Duration -</div>
+
+        <div className="flex w-full justify-between mt-4 pb-4 border-b border-gray-500">
+          <div className="text-lg font-heading">Duration</div>
           <div className="font-heading text-sm">
             {//@ts-ignore
-              ((new Date(Booking.endTime) - new Date(Booking.startTime)) /
-                60000
-              ).toFixed(0)}{" "}
+            ((new Date(Booking.endTime) - new Date(Booking.startTime)) /
+              60000
+            ).toFixed(0)}{" "}
             minutes
           </div>
         </div>
-        <div className="flex justify-between w-3/4 pb-6 text-left mt-4 border-b border-b-gray-500">
-          <div className="font-heading text-[18px]">Description -</div>
-          <div className="w-1/2 font-heading text-sm">
-            {Booking.description}
+
+        <div className="flex w-full justify-between mt-4 pb-4 border-b border-gray-500">
+          <div className="text-lg font-heading">Description</div>
+          <div className="w-1/2 text-sm font-heading truncate">
+            {truncateText(Booking.description)}
           </div>
         </div>
-        <div className="flex justify-between w-3/4 pb-6 text-left mt-4 border-b border-b-gray-500">
-          <div className="text-[18px] font-heading">Additional Info -</div>
-          <div className="w-1/2 font-heading text-sm">
-            {Booking.description}
+
+        <div className="flex w-full justify-between mt-4 pb-4 border-b border-gray-500">
+          <div className="text-lg font-heading">Additional Info</div>
+          <div className="w-1/2 text-sm font-heading truncate">
+            {truncateText(Booking.additionalInfo)}
           </div>
         </div>
-        <div className="mt-4 pb-4 text-[25px] text-center text-gray-500 font-heading">
-          <div>{Booking && Booking.canceled ? "canceled" : startingIn}</div>
+
+        <div className="mt-4 pb-4 text-xl text-center text-gray-500 font-heading">
+          {Booking && Booking.canceled ? "Canceled" : startingIn}
         </div>
+
         {Booking && !Booking.canceled && (
-          <div className="w-full sm:w-3/4 flex flex-col justify-center items-center sm:flex-row sm:justify-between mt-4 space-y-4 sm:space-y-0">
+          <div className="w-full flex flex-col justify-center items-center mt-4 space-y-4">
             <a
               href={Booking.event.meetLink}
               target="_blank"
-              className={`${!isOccured ? "w-3/4" : " w-3/4 md:w-1/3"
-                } flex justify-center py-2 rounded-lg font-heading hover:bg-gray-500 hover:text-black duration-200 border-gray-500 border`}
+              className="w-full flex justify-center py-2 rounded-lg font-heading hover:bg-gray-500 hover:text-black duration-200 border-gray-500 border"
             >
               Join Event
             </a>
             {isOccured && (
               <button
                 onClick={cancelBooking}
-                className="w-3/4 md:w-1/3 flex justify-center font-heading py-2 rounded-lg bg-mainText text-black hover:bg-home hover:text-white duration-200 border-gray-500 border"
+                className="w-full flex justify-center font-heading py-2 rounded-lg bg-mainText text-black hover:bg-home hover:text-white duration-200 border-gray-500 border"
               >
                 Cancel Event
               </button>

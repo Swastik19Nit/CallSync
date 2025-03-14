@@ -41,7 +41,7 @@ export default function Landing() {
         </h1>
         <div className="flex items-center gap-2 sm:gap-3 md:gap-5">
           <a
-            href="https://github.com/Swastik19Nit/Collab"
+            href="https://github.com/Swastik19Nit/CallSync"
             target="_blank"
             className="bg-mainText rounded-3xl flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-5 md:py-3"
             rel="noreferrer"

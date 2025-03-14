@@ -33,34 +33,36 @@ export default function Landing() {
   return (
     <div className="relative">
       {/* Header */}
-      <header className="flex justify-between items-center px-4 md:px-12 lg:px-16 py-6">
+      <header className="flex justify-between items-center px-4 md:px-12 lg:px-16 py-4 md:py-6">
         <h1>
-          <a href="/" className="text-mainText font-heading font-extrabold text-2xl sm:text-4xl cursos-pointer">
+          <a href="/" className="text-mainText font-heading font-extrabold text-xl sm:text-2xl md:text-4xl cursor-pointer">
             CalSync
           </a>
         </h1>
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-5">
           <a
             href="https://github.com/Swastik19Nit/Collab"
             target="_blank"
-            className="bg-mainText rounded-3xl flex items-center justify-center px-3 py-2 md:px-5 md:py-3"
+            className="bg-mainText rounded-3xl flex items-center justify-center px-2 py-1 sm:px-3 sm:py-2 md:px-5 md:py-3"
             rel="noreferrer"
           >
-            <img className="w-5 h-5 md:w-6 md:h-6" src={github || "/placeholder.svg"} alt="GitHub" />
-            <span className="ml-2 text-main font-heading font-semibold text-sm md:text-lg">Give me a star</span>
+            <img className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" src={github || "/placeholder.svg"} alt="GitHub" />
+            <span className="ml-1 sm:ml-2 text-main font-heading font-medium text-xs sm:text-sm md:text-lg">Give me ⭐</span>
           </a>
 
           {userInfo ? (
             <Link
               to="/home/event-types"
-              className="bg-main rounded-3xl px-4 py-2 md:px-6 md:py-3 border-mainText border-2 text-mainText hover:text-main hover:bg-mainText font-heading font-semibold text-sm md:text-lg transition-colors"
+              className="bg-main rounded-3xl px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 border-mainText border text-mainText 
+        hover:text-main hover:bg-mainText font-heading font-medium text-xs sm:text-sm md:text-lg transition-colors"
             >
               Go to App
             </Link>
           ) : (
             <Link
               to="/register"
-              className="bg-main rounded-3xl px-4 py-2 md:px-6 md:py-3 border-mainText border-2 text-mainText hover:text-main hover:bg-mainText font-heading font-semibold text-sm md:text-lg transition-colors"
+              className="bg-main rounded-3xl px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 border-mainText border text-mainText 
+        hover:text-main hover:bg-mainText font-heading font-medium text-xs sm:text-sm md:text-lg transition-colors"
             >
               Sign Up
             </Link>
